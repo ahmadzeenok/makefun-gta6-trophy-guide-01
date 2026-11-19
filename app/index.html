@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: full guides, roadmap to the Platinum, missable warnings, and a saved checklist.">
+<title>Leonida Legend — GTA VI Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; Released 19 Nov 2026</p>
+    <h1>Leonida Legend</h1>
+    <p class="tagline">Every one of the 55 trophies, with a guide in plain words, a road to the Platinum, and a checklist that remembers what you have earned. All single-player. All offline.</p>
+    <div class="progress-wrap" aria-label="Trophy progress">
+      <div class="progress-numbers"><span id="progressText">0 of 55 earned</span><span id="progressPct">0%</span></div>
+      <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+      <ul class="grade-counts" id="gradeCounts"></ul>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Guide sections">
+  <button type="button" class="tab active" data-view="checklist" id="tab-checklist">Checklist</button>
+  <button type="button" class="tab" data-view="roadmap" id="tab-roadmap">Roadmap</button>
+  <button type="button" class="tab" data-view="missables" id="tab-missables">Missables</button>
+  <button type="button" class="tab" data-view="about" id="tab-about">About &amp; sources</button>
+</nav>
+
+<main>
+  <section id="view-checklist" class="view active" aria-label="Trophy checklist">
+    <div class="toolbar">
+      <label class="search-label">Search
+        <input id="search" type="search" placeholder="Search name, description or guide…" autocomplete="off">
+      </label>
+      <div class="chip-row" id="gradeChips" role="group" aria-label="Filter by grade">
+        <button type="button" class="chip active" data-grade="all">All grades</button>
+        <button type="button" class="chip" data-grade="platinum">Platinum</button>
+        <button type="button" class="chip" data-grade="gold">Gold</button>
+        <button type="button" class="chip" data-grade="silver">Silver</button>
+        <button type="button" class="chip" data-grade="bronze">Bronze</button>
+      </div>
+      <div class="filter-row">
+        <label>Kind
+          <select id="kindFilter">
+            <option value="all">All kinds</option>
+            <option value="story">Story</option>
+            <option value="collectible">Collectible</option>
+            <option value="activity">Activity</option>
+            <option value="challenge">Challenge</option>
+            <option value="exploration">Exploration</option>
+            <option value="misc">Misc</option>
+          </select>
+        </label>
+        <label>Earned
+          <select id="earnedFilter">
+            <option value="all">Show all</option>
+            <option value="earned">Earned only</option>
+            <option value="unearned">Unearned only</option>
+          </select>
+        </label>
+        <label class="check-label"><input id="missableOnly" type="checkbox"> Missable only</label>
+        <label class="check-label spoiler-label"><input id="spoilerToggle" type="checkbox" checked> Hide story spoilers</label>
+      </div>
+      <div class="action-row">
+        <button id="exportBtn" type="button">Export progress (.json)</button>
+        <label class="import-label">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+        <button id="resetBtn" type="button" class="quiet">Reset checklist</button>
+        <span id="statusLine" class="status" role="status"></span>
+      </div>
+    </div>
+    <p id="resultCount" class="result-count"></p>
+    <div id="trophyGrid" class="trophy-grid"></div>
+    <p id="emptyNote" class="empty-note" hidden>No trophies match these filters. Clear the search or widen the filters.</p>
+  </section>
+
+  <section id="view-roadmap" class="view" aria-label="Roadmap to the Platinum">
+    <h2>The road to the Platinum</h2>
+    <p class="lede">PowerPyx rates this Platinum 4/10 in difficulty and about 200 hours. It is long, not hard: one playthrough, no difficulty trophies, no mission medals, no online trophies. Follow the stages in order and the checklist does the rest.</p>
+    <ol class="roadmap" id="roadmapList"></ol>
+    <aside class="callout">
+      <h3>Before you start</h3>
+      <p>Cheats disable trophies, so leave them alone until the Platinum pops. There is no mission replay and no New Game Plus, so keep a manual save at the start of every chapter and one more before the final mission.</p>
+    </aside>
+  </section>
+
+  <section id="view-missables" class="view" aria-label="Missable trophies">
+    <h2>Missables &amp; save discipline</h2>
+    <p class="lede">Only one trophy is reported as possibly missable. Everything else can be finished in free roam after the story.</p>
+    <div id="missableList" class="missable-list"></div>
+    <div class="save-plan">
+      <h3>Your save plan</h3>
+      <ol>
+        <li><strong>Start of every chapter:</strong> make a manual save in a fresh slot. Never overwrite the chapter-start saves.</li>
+        <li><strong>Chapter 1, before it ends:</strong> do Lucia&rsquo;s balcony meditation at Jason&rsquo;s house (see Positive Mental Attitude).</li>
+        <li><strong>Before the final mission:</strong> make one more manual save, so you can return to free roam cleanly.</li>
+        <li><strong>After the story:</strong> keep one save labelled &ldquo;post-story&rdquo; as your cleanup base.</li>
+      </ol>
+      <p>There is no mission replay and no New Game Plus, so a manual save is the only way back. If a trophy ever fails to pop, the chapter-start save is your safety net.</p>
+    </div>
+  </section>
+
+  <section id="view-about" class="view" aria-label="About and sources">
+    <h2>About this guide</h2>
+    <p>Grand Theft Auto VI released on 19 November 2026 for PlayStation 5 and Xbox Series X|S. Its PS5 list holds 55 trophies: 1 Platinum, 2 Gold, 6 Silver and 46 Bronze, 28 of them hidden until earned. Every trophy is single-player and offline. All guide text in this app is original writing for this entry; the trophy names, descriptions and grades are shown exactly as PlayStation publishes them.</p>
+    <h3>How the tracker works</h3>
+    <p>Tick a trophy and it is saved in your browser (localStorage) on this device. Export writes your progress to a JSON file; import reads one back. Nothing leaves your device and the app makes no network requests at all: it works with the network off.</p>
+    <h3>Sources</h3>
+    <p>Each trophy&rsquo;s guide names its sources beside it. The lists and roadmaps this guide draws on are:</p>
+    <ul class="source-list">
+      <li>Exophase — the official trophy list</li>
+      <li>PSNProfiles — the official trophy list</li>
+      <li>PowerPyx — GTA 6 trophy guide and roadmap (difficulty 4/10, about 200 hours, the missable meditation)</li>
+      <li>GTABase — trophy list and roadmap (100% checklist figures, meditation count)</li>
+      <li>Output Lag — trophy list (the Chapter 1 meditation warning, save advice)</li>
+      <li>GTA Zone — trophy list (Criminal Profile actions, hidden trophies)</li>
+      <li>PlanetGTA6 — trophy list (visible and hidden split)</li>
+    </ul>
+    <h3>Honesty note</h3>
+    <p>Where a detail is not yet confirmed in public guides — exact meditation-spot locations, exact card locations, and the exact triggers of the vaguest trophies — the guide says so plainly instead of inventing a location or a number. Check the in-game Progress and Collections trackers, which are the most reliable source once you are playing.</p>
+    <p class="fineprint">An unofficial fan guide. Not affiliated with Rockstar Games. No Rockstar logo, artwork, box art or game screenshots are used. MIT licensed.</p>
+  </section>
+</main>
+
+<aside id="detailPane" class="detail-pane" aria-label="Trophy guide" hidden>
+  <button id="detailClose" type="button" class="detail-close" aria-label="Close guide">&times;</button>
+  <div id="detailBody"></div>
+</aside>
+<div id="detailScrim" class="detail-scrim" hidden></div>
+
+<footer>
+  <p>Leonida Legend — an unofficial offline GTA VI trophy guide &amp; tracker. 55 trophies: 1 Platinum, 2 Gold, 6 Silver, 46 Bronze; 28 hidden; 1 possibly missable. Progress is stored only in your browser.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
